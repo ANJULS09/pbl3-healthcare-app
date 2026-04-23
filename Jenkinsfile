@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/ANJULS09/pbl3-healthcare-app.git'
+                git branch: 'main', url: 'https://github.com/ANJULS09/pbl3-healthcare-app.git'
             }
         }
         stage('Build Docker Image') {
