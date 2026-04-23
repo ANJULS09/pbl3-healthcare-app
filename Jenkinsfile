@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_USER = 'ANJULS09' 
+        DOCKER_HUB_USER = 'anjuls09' 
         APP_NAME = 'healthcare-app'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
