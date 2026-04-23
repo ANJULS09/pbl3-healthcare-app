@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                 sh "sed -i 's|DOCKERHUB_IMAGE_PLACEHOLDER|anjuls09/healthcare-app:${env.BUILD_ID}|g' deployment.yaml"
-                sh "kubectl --kubeconfig=/var/jenkins_home/.kube/config apply -f deployment.yaml --validate=false"
+                sh "kubectl --kubeconfig=/var/jenkins_home/.kube/config apply -f deployment.yaml --validate=false --insecure-skip-tls-verify=true"
               }
             }
         }
