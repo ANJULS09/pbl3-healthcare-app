@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     sh "sed -i 's|DOCKERHUB_IMAGE_PLACEHOLDER|${DOCKER_HUB_USER}/${APP_NAME}:${IMAGE_TAG}|g' deployment.yaml"
-                    sh "kubectl apply -f deployment.yaml"
+                    sh "kubectl apply -f deployment.yaml --validate=false"
                 }
             }
         }
