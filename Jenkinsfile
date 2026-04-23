@@ -31,9 +31,9 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh "sed -i 's|DOCKERHUB_IMAGE_PLACEHOLDER|${DOCKER_HUB_USER}/${APP_NAME}:${IMAGE_TAG}|g' deployment.yaml"
-                    sh "kubectl apply -f deployment.yaml --validate=false"
-                }
+                sh "sed -i 's|DOCKERHUB_IMAGE_PLACEHOLDER|anjuls09/healthcare-app:${env.BUILD_ID}|g' deployment.yaml"
+                sh "kubectl --kubeconfig=/var/jenkins_home/.kube/config apply -f deployment.yaml --validate=false"
+              }
             }
         }
     }
